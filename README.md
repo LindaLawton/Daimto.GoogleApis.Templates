@@ -1,5 +1,6 @@
 # Daimto.GoogleApis.Templates
-Templates for .net core With Google APIs
+
+dotnet new templates for the Google .Net client library and .net core
 
 
 ## DaimtoTools.GAV4AspNetMvc.ServiceAccount
