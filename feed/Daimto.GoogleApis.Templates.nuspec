@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Daimto.GoogleApis.Templates</id>
+    <version></version>
+    <authors>Linda Lawton</authors>
+    <description>GoogleApi Templates</description>
+    <language>en-US</language>
+    <projectUrl>https://github.com/LindaLawton/Daimto.GoogleApis.Templates</projectUrl>
+    <licenseUrl>https://github.com/LindaLawton/Daimto.GoogleApis.Templates/blob/master/LICENSE</licenseUrl>    
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+  </metadata>
+</package>
