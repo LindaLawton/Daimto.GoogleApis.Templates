@@ -1,7 +1,8 @@
-# Daimto.GoogleApis.Templates
+# Google APIs Templates
 
 dotnet new templates for the Google .Net client library and .net core
 
+![Google Analytics API](https://www.google.com/images/icons/product/analytics-32.png) Google Analytics Reporting V4
 
 ## DaimtoTools.GAV4AspNetMvc.ServiceAccount
 
