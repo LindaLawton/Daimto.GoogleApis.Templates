@@ -1,0 +1,8 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Linda Lawton",
+    "classifications": [ "Common", "Console" ],
+    "identity": "DaimtoTools.GAV4AspNetMvc.ServiceAccount",
+    "name": "Daimto Google Analytics Reporting v4 MVC application with service account authentication",
+    "shortName": "daimtogav4serviceacccountmvc"
+}

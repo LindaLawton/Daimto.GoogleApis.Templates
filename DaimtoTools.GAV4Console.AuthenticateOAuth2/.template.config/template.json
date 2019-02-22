@@ -1,0 +1,8 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Linda Lawton",
+    "classifications": [ "Common", "Console" ],
+    "identity": "DaimtoTools.GAV4Console.AuthenticateOAuth2",
+    "name": "Daimto Google Analytics Reporting v4 console application with Oauth2 authentication",
+    "shortName": "daimtogav4oauth2console"
+}

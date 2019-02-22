@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaimtoTools.GAV4Console.ServiceAccount", "DaimtoTools.GAV4Console.ServiceAccount\DaimtoTools.GAV4Console.ServiceAccount.csproj", "{8431EE60-07EC-4FA8-985B-2AD365EA9053}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaimtoTools.GAV4Console.AuthenticateOAuth2", "DaimtoTools.GAV4Console.AuthenticateOAuth2\DaimtoTools.GAV4Console.AuthenticateOAuth2.csproj", "{51C80294-0469-485E-8B35-C442307CA202}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaimtoTools.GAV4AspNetMvc.ServiceAccount", "DaimtoTools.GAV4AspNetMvc.ServiceAccount\DaimtoTools.GAV4AspNetMvc.ServiceAccount.csproj", "{BD8B3DA4-B6C2-44CF-A86F-BACEF9F7741C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaimtoTools.GAV4AspNetMvc.AuthenticateOAuth2", "DaimtoTools.GAV4AspNetMvc.AuthenticateOAuth2\DaimtoTools.GAV4AspNetMvc.AuthenticateOAuth2.csproj", "{60D4D415-FCFB-437D-A480-319F3FD96E1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8431EE60-07EC-4FA8-985B-2AD365EA9053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8431EE60-07EC-4FA8-985B-2AD365EA9053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8431EE60-07EC-4FA8-985B-2AD365EA9053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8431EE60-07EC-4FA8-985B-2AD365EA9053}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51C80294-0469-485E-8B35-C442307CA202}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51C80294-0469-485E-8B35-C442307CA202}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51C80294-0469-485E-8B35-C442307CA202}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51C80294-0469-485E-8B35-C442307CA202}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD8B3DA4-B6C2-44CF-A86F-BACEF9F7741C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD8B3DA4-B6C2-44CF-A86F-BACEF9F7741C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD8B3DA4-B6C2-44CF-A86F-BACEF9F7741C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD8B3DA4-B6C2-44CF-A86F-BACEF9F7741C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60D4D415-FCFB-437D-A480-319F3FD96E1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60D4D415-FCFB-437D-A480-319F3FD96E1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60D4D415-FCFB-437D-A480-319F3FD96E1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60D4D415-FCFB-437D-A480-319F3FD96E1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22BCA63D-E967-4A9F-A5D0-8B3358B2DE91}
+	EndGlobalSection
+EndGlobal

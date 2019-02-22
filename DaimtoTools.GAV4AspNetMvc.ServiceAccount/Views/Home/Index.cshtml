@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@using DaimtoTools.GAV4AspNetMvc.ServiceAccount.Controllers
+@model ReportResponseModel;
+
+
+@foreach (var row in Model.Rows)
+{
+    <div class="row">
+        @foreach (var dim in row.Dimensions)
+        {
+            <div class="col-md-2">
+                @dim
+            </div>
+        }
+        @foreach (var metric in row.Metrics)
+        {
+            @foreach (var met in metric.Values)
+            {
+                <div class="col-md-2">
+                    @met
+                </div>
+            }
+        }
+    </div>
+}
