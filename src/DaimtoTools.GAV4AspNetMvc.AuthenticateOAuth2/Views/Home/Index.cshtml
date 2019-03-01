@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <form asp-action="GoogleAnalyticsReport" method="post" class="form-horizontal">
+            <p>Enter the view to request data for</p>
+            <div class="row">
+                <div class="col-xs-12">
+                    <label class="control-label">View id</label>
+                    <input name="ViewId" class="form-control" type="text" autofocus tabindex="1">
+                </div>
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-block btn-default" name="provider" title="Get data">Get data</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

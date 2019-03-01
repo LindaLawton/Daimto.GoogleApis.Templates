@@ -6,13 +6,9 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Apis.AnalyticsReporting.v4" Version="1.38.0.1485" />
+    <PackageReference Include="Google.Apis.Auth.AspNetCore" Version="1.38.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\DaimtoTools.GAV4AspNetMvc.AuthenticateOAuth2\DaimtoTools.GAV4AspNetMvc.AuthenticateOAuth2.csproj" />
   </ItemGroup>
 
 </Project>
