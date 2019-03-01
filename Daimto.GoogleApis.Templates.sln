@@ -9,7 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaimtoTools.GAV4Console.Aut
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaimtoTools.GAV4AspNetMvc.ServiceAccount", "src\DaimtoTools.GAV4AspNetMvc.ServiceAccount\DaimtoTools.GAV4AspNetMvc.ServiceAccount.csproj", "{BD8B3DA4-B6C2-44CF-A86F-BACEF9F7741C}"
 EndProject
-
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DaimtoTools.GAV4AspNetMvc.AuthenticateOAuth2", "src\DaimtoTools.GAV4AspNetMvc.AuthenticateOAuth2\DaimtoTools.GAV4AspNetMvc.AuthenticateOAuth2.csproj", "{72E1737D-B9CC-4BF7-8309-057E7D2A08A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,10 +29,10 @@ Global
 		{BD8B3DA4-B6C2-44CF-A86F-BACEF9F7741C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD8B3DA4-B6C2-44CF-A86F-BACEF9F7741C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD8B3DA4-B6C2-44CF-A86F-BACEF9F7741C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{60D4D415-FCFB-437D-A480-319F3FD96E1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{60D4D415-FCFB-437D-A480-319F3FD96E1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{60D4D415-FCFB-437D-A480-319F3FD96E1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{60D4D415-FCFB-437D-A480-319F3FD96E1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72E1737D-B9CC-4BF7-8309-057E7D2A08A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72E1737D-B9CC-4BF7-8309-057E7D2A08A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72E1737D-B9CC-4BF7-8309-057E7D2A08A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72E1737D-B9CC-4BF7-8309-057E7D2A08A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,70 +1,91 @@
-﻿using System;
+﻿using DaimtoTools.GAV4AspNetMvc.AuthenticateOAuth2.Models;
+using Google.Apis.AnalyticsReporting.v4;
+using Google.Apis.AnalyticsReporting.v4.Data;
+using Google.Apis.Auth.AspNetCore;
+using Google.Apis.Services;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using DaimtoTools.GAV4AspNetMvc.AuthenticateOAuth2.Auth;
-using Microsoft.AspNetCore.Mvc;
-using DaimtoTools.GAV4AspNetMvc.AuthenticateOAuth2.Models;
-using Google.Apis.AnalyticsReporting.v4;
-using Google.Apis.Auth.OAuth2;
-using Google.Apis.Auth.OAuth2.Flows;
-using Google.Apis.Auth.OAuth2.Responses;
-using Google.Apis.Services;
-using Microsoft.AspNetCore.Authorization;
 
 namespace DaimtoTools.GAV4AspNetMvc.AuthenticateOAuth2.Controllers
 {
     public class HomeController : Controller
     {
-        [Authorize]
-        public async  Task<IActionResult> Index()
+        public IActionResult Index([FromServices] IGoogleAuthProvider auth, [FromServices] ClientInfo clientInfo)
         {
+            //TODO add read from managment API to list users profiles.
+            return View();
+        }
 
-            //var token = new TokenResponse()
-            //{
-            //    AccessToken = HttpContext.User.Identities.FirstOrDefault()?.Claims.FirstOrDefault(c => c.Type.Equals("googleaccesstoken"))?.Value,
-               
-                
-            //};
-
-            //var x = new AuthorizationCodeFlow.Initializer("", "");
-            //x.ClientSecrets = new ClientSecrets();
-            //var m = new AuthorizationCodeFlow(x);
-            
-            //var cred = new UserCredential(new AuthorizationCodeFlow(x), "test", new TokenResponse()) { };
-
-
-            var flow = new GoogleAuthorizationCodeFlow(new GoogleAuthorizationCodeFlow.Initializer
+        [GoogleScopedAuthorize("https://www.googleapis.com/auth/analytics.readonly")]
+        public async Task<IActionResult> GoogleAnalyticsReport([FromServices] IGoogleAuthProvider auth, [FromServices] ClientInfo clientInfo, long ViewId)
+        {
+            var cred = await auth.GetCredentialAsync();
+            var service = new AnalyticsReportingService(new BaseClientService.Initializer
             {
-                ClientSecrets = new ClientSecrets
-                {
-                    ClientId = "xxx.apps.googleusercontent.com",
-                    ClientSecret = "xxxx"
-                },
-                Scopes = new List<string>() {AnalyticsReportingService.Scope.AnalyticsReadonly },
-                DataStore = new HttpContextDataStore(HttpContext)
+                HttpClientInitializer = cred
             });
 
-            var token = new TokenResponse
+            var dateRange = new DateRange() { StartDate = "2018-06-01", EndDate = "2019-01-01" };
+
+            // Create the Metrics object.
+            var dimensions = new List<Dimension>()
             {
-                AccessToken = HttpContext.User.Identities.FirstOrDefault()?.Claims.FirstOrDefault(c => c.Type.Equals("googleaccesstoken"))?.Value,
-                RefreshToken = "[your_refresh_token_here]"
+                new Dimension {Name = "ga:browser"},
+                new Dimension {Name = "ga:date"},
+                new Dimension {Name = "ga:userType"}
             };
 
-            var credential = new UserCredential(flow, Environment.UserName, token);
-
-
-
-            var service = new AnalyticsReportingService(new BaseClientService.Initializer()
+            //Create the Dimensions object.
+            var metrics = new List<Metric>()
             {
-                HttpClientInitializer = credential,
-                ApplicationName = "Analyticsreporting Service account Authentication Sample",
-            });
+                new Metric {Expression = "ga:sessions", Alias = "Sessions"},
+                new Metric {Expression = "ga:users", Alias = "Users"},
+                new Metric {Expression = "ga:newUsers", Alias = "New Users"}
+            };
 
+            // Create the ReportRequest object.
+            var reportRequest = new ReportRequest
+            {
+                ViewId = ViewId.ToString(),
+                DateRanges = new List<DateRange>() { dateRange },
+                Dimensions = dimensions,
+                Metrics = metrics,
+                PageSize = 10000
+            };
 
+            var requests = new List<ReportRequest> { reportRequest };
 
-            return View();
+            // Create the GetReportsRequest object.
+            var getReport = new GetReportsRequest() { ReportRequests = requests };
+
+            var rows = new List<ReportRow>();
+
+            try
+            {
+                do
+                {
+                    Console.WriteLine($"Requesting data for Pagetoken: {getReport.ReportRequests.FirstOrDefault().PageToken}");
+
+                    // Call the batchGet method.
+                    var response = service.Reports.BatchGet(getReport).Execute();
+
+                    rows.AddRange(response.Reports.FirstOrDefault().Data.Rows);
+
+                    getReport.ReportRequests.FirstOrDefault().PageToken = response.Reports.FirstOrDefault().NextPageToken;
+
+                } while (getReport.ReportRequests.FirstOrDefault().PageToken != null);
+
+                return View(new ReportResponseModel { Rows = rows });
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Logout");
+            }
         }
 
         public IActionResult About()
@@ -86,10 +107,21 @@ namespace DaimtoTools.GAV4AspNetMvc.AuthenticateOAuth2.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+    }
+
+    public class ReportResponseModel
+    {
+        public List<ReportRow> Rows { get; set; }
     }
 }
