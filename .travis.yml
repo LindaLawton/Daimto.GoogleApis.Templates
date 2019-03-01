@@ -7,4 +7,6 @@ dotnet: 2.2
 script:        
     - dotnet build --configuration Release Daimto.GoogleApis.Templates.sln    
     # require the branch name to be master (note for PRs this is the base branch name)
-    - if: branch = master then  echo 'I am master'; fi
+    - if [ "$TRAVIS_BRANCH" = master ]; then
+        echo 'I am master'; 
+      fi
