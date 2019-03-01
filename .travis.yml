@@ -4,5 +4,5 @@ dotnet: 2.1
 dist: trusty
 
 script:
-  pwd
-  dotnet build --configuration Release Daimto.GoogleApis.Templates.sln
+  - pwd
+  - dotnet build --configuration Release Daimto.GoogleApis.Templates.sln
