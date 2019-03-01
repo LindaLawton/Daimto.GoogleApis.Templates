@@ -3,8 +3,8 @@ mono: none
 sudo: required
 dist: xenial
 dotnet: 2.2
+
 script:        
-    - dotnet build --configuration Release Daimto.GoogleApis.Templates.sln
+    - dotnet build --configuration Release Daimto.GoogleApis.Templates.sln    
     # require the branch name to be master (note for PRs this is the base branch name)
-    if: branch = master
-    - pwd
+    - if: branch = master then  echo 'I am master'; fi
