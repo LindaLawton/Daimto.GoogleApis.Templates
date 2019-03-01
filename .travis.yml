@@ -6,8 +6,8 @@ dotnet: 2.2
 
 script:        
     - dotnet build --configuration Release Daimto.GoogleApis.Templates.sln    
+    - mono nuget.exe pack D:\Development\Core\Google\Daimto.GoogleApis.Templates\Daimto.GoogleApis.Templates.nuspec -Version  $MAJOR_VERSION_NUMBER.$MINOR_VERSION_NUMBER.$TRAVIS_BUILD_NUMBER;
     # require the branch name to be master (note for PRs this is the base branch name)
-    - if [ "$TRAVIS_BRANCH" = master ]; then
-        echo 'I am master'; 
-        mono nuget.exe pack D:\Development\Core\Google\Daimto.GoogleApis.Templates\Daimto.GoogleApis.Templates.nuspec -Version  $MAJOR_VERSION_NUMBER.$MINOR_VERSION_NUMBER.$TRAVIS_BUILD_NUMBER
-      fi
+    #- if [ "$TRAVIS_BRANCH" = master ]; then
+    #    echo 'I am master';     
+    #  fi
