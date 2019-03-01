@@ -3,5 +3,5 @@ mono: none
 dotnet: 2.1
 dist: trusty
 
-
-dotnet build --configuration Release Daimto.GoogleApis.Templates
+script:
+  dotnet build --configuration Release Daimto.GoogleApis.Templates
